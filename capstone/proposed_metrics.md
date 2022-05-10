@@ -30,3 +30,18 @@ Revenue vs Budget
 Average customer review
 
 
+**SCOPED METRICS**
+
+**Metric:**  count of orders
+**Definition:** `count(distinct(order_id)) as count_of_orders`; this can be grouped by things like product_category_name, customer, customer_state, payment_type, sellers, etc. Does not necessarily need to be filtered by any particular field.
+**Visualization:** Count of orders over time and product category; Line chart where the x-axis is `extract(month from order_purchase_timestamp)`, the y-axis is `count(distinct(order_id))` , pivoted on (one line per) `products.product_category_name`. Filtered on last 12 months
+
+
+**Metric:**  customer age
+**Definition:** `date_diff(date customer_first_order_date, date customer_last_order_date, DAY) AS customer_age;`; this customer dimension can be used to measure how long a customer has been making orders at the time of purchase.
+**Visualization:** Average Customer Age by Product Category; Bar chart where the x-axis is `products.product_category_name`, the y-axis is `avg(customer_age)`.
+
+
+**Metric:**  time to deliver
+**Definition:** `date_diff(date (date(timestamp order_purchase_timestamp), date order_delivered_customer_date, DAY) AS days_to_deliver;`; this dimension can be used to measure the amount of time in days from the moment an order was purchased to when it was delivered.
+**Visualization:** Average Time to Deliver by Seller State; Bar chart where the x-axis is `sellers.seller_state`, the y-axis is `avg(days_to_deliver)`.
