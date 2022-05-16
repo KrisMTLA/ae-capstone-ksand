@@ -41,6 +41,8 @@ Average customer review
 **Definition:** `date_diff(date customer_first_order_date, date customer_last_order_date, DAY) AS customer_age;`; this customer dimension can be used to measure how long a customer has been making orders at the time of purchase.
 **Visualization:** Average Customer Age by Product Category; Bar chart where the x-axis is `products.product_category_name`, the y-axis is `avg(customer_age)`.
 
+**Visualization:** Count of Customers by Age; Bar chart where the x-axis is `customer_age`, the y-axis is `count(distinct((customer_id))`.
+
 
 **Metric:**  time to deliver
 **Definition:** `date_diff(date (date(timestamp order_purchase_timestamp), date order_delivered_customer_date, DAY) AS days_to_deliver;`; this dimension can be used to measure the amount of time in days from the moment an order was purchased to when it was delivered.
