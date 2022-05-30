@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: One unique product per row
+    columns: 
+      - name: product_id
+        description: Primary key for stg_products
+        tests:
+          - unique
+          - not_null
+          
+  

@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fct_order_items
+    description: "one record per order item with dimensional attributes"
+    columns:
+      - name: order_item_sk
+        tests:
+          - not_null
+          - unique

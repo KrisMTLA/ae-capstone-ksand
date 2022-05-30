@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_sellers
+    description: One unique seller per row
+    columns: 
+      - name: seller_id
+        description: Primary key for stg_seller_id
+        tests:
+          - unique
+          - not_null
+          
+  
