@@ -28,15 +28,16 @@ final as (
         orders.order_purchase_timestamp as ordered_at,
         orders.order_approved_at as approved_at,
         orders.order_delivered_carrier_date as delivered_carrier_at,
-        orders.order_delivered_customer_date as delivered_customer__at,
+        orders.order_delivered_customer_date as delivered_customer_at,
         orders.order_estimated_delivery_date as estimated_delivery_at,
     -- dimensions
         order_items.price,
         order_items.freight_value,
-        orders.order_status,
-        order_payments.payment_type,
-        order_payments.payment_installments as payment_installments,
-        order_payments.payment_value as payment_amount,
+        case when order_payments.payment_type is null then 'returned'
+            else orders.order_status end as order_status,
+        coalesce(order_payments.payment_type, 'returned') as payment_type,
+        coalesce(order_payments.payment_installments, 0) as payment_installments,
+        coalesce(order_payments.payment_value, 0) as payment_amount,
         reviews.review_score as order_review_score,
     -- booleans
         case when order_payments.payment_installments > 1 then 1 

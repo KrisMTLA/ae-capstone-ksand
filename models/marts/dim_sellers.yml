@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_sellers
+    description: "one record per seller with dimensional attributes such as seller location details"
+    columns:
+      - name: seller_id
+        tests:
+          - not_null
+          - unique

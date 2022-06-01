@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "one record per customer with dimensional attributes such as customer location details"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique

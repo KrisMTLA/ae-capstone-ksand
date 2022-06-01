@@ -8,6 +8,4 @@ models:
         description: Primary key for stg_orders
         tests:
           - unique
-          - not_null
-          
-  
+          - not_null 

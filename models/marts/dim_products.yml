@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: "one record per product with dimensional attributes such as product weight and length"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
