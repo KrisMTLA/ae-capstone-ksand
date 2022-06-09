@@ -25,7 +25,7 @@ final as (
         order_items.seller_id,
         orders.customer_id,
     -- timestamps
-        orders.order_purchase_timestamp as ordered_at,
+        orders.ordered_at,
         orders.order_approved_at as approved_at,
         orders.order_delivered_carrier_date as delivered_carrier_at,
         orders.order_delivered_customer_date as delivered_customer_at,
@@ -38,7 +38,7 @@ final as (
         coalesce(order_payments.payment_type, 'returned') as payment_type,
         coalesce(order_payments.payment_installments, 0) as payment_installments,
         coalesce(order_payments.payment_value, 0) as payment_amount,
-        reviews.review_score as order_review_score,
+        reviews.review_score,
     -- booleans
         case when order_payments.payment_installments > 1 then 1 
             else 0 end as is_paid_with_installments,

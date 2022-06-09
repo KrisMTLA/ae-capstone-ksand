@@ -9,5 +9,8 @@ models:
         tests:
           - unique
           - not_null
+      - name: customer_unique_id
+      - name: customer_zip_code_prefix
+      - name: customer_city
+      - name: customer_state
           
-  

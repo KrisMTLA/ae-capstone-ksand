@@ -8,4 +8,12 @@ models:
         description: Primary key for stg_orders
         tests:
           - unique
-          - not_null 
+          - not_null
+      - name: customer_id
+      - name: order_status
+      - name: ordered_at
+      - name: order_approved_at
+      - name: order_delivered_carrier_date
+      - name: order_delivered_customer_date
+      - name: order_estimated_delivery_date
+          

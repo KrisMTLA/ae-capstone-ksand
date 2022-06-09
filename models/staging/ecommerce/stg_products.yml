@@ -9,3 +9,12 @@ models:
         tests:
           - unique
           - not_null
+      - name: product_category_name
+      - name: product_name_lenght
+      - name: product_description_lenght
+      - name: product_photos_qty
+      - name: product_weight_g
+      - name: product_length_cm
+      - name: product_height_cm
+      - name: product_width_cm
+      

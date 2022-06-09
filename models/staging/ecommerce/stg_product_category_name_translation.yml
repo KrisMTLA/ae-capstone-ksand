@@ -7,3 +7,5 @@ models:
       - name: string_field_0
         tests:
           - not_null
+      - name: string_field_1
+      
