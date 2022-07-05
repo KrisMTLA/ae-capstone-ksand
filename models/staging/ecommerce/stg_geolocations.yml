@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_geolocations
+    description: One unique geolocation per row
+    columns: 
+      - name: geolocation_zip_code_prefix
+        tests:
+          - not_null
+      - name: geolocation_lat
+      - name: geolocation_lng
+      - name: geolocation_city
+      - name: geolocation_state
+          

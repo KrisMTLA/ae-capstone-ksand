@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_order_reviews
+    description: TODO
+    columns: 
+      - name: review_answer_timestamp
+        tests:
+          - not_null
+      - name: order_id
+      - name: review_score
+      - name: review_creation_date
+      - name: review_answer_timestamp
+      

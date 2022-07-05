@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_order_payments
+    description: TODO
+    columns: 
+      - name: order_id
+        tests:
+          - not_null
+      - name: payment_sequential
+      - name: payment_type
+      - name: payment_installments
+      - name: payment_value
+      

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: One unique order item per row
+    columns: 
+      - name: order_item_sk
+        description: Primary key for order item
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+      - name: order_item_id
+      - name: product_id
+      - name: seller_id
+      - name: shipping_limit_date
+      - name: price
+      - name: freight_value
+          

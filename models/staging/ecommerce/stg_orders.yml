@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: One unique order per row
+    columns: 
+      - name: order_id
+        description: Primary key for stg_orders
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+      - name: order_status
+      - name: ordered_at
+      - name: order_approved_at
+      - name: order_delivered_carrier_date
+      - name: order_delivered_customer_date
+      - name: order_estimated_delivery_date
+          
