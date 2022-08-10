@@ -6,7 +6,7 @@ with customers as  (
 
 orders as  (
 
-    select * from {{ ref('stg_orders')}}
+    select * from {{ ref('stg_orders') }}
 
 ),
 
@@ -14,8 +14,14 @@ customer_first_last_order_at as (
 
     select
         customer_id,
-        first_value(orders.ordered_at) over(partition by orders.customer_id order by orders.ordered_at asc) as first_order_at,
-        last_value(orders.ordered_at) over(partition by orders.customer_id order by orders.ordered_at asc) as last_order_at
+        first_value(orders.ordered_at) over (
+            partition by orders.customer_id 
+            order by orders.ordered_at asc
+        ) as first_order_at,
+        last_value(orders.ordered_at) over (
+            partition by orders.customer_id 
+            order by orders.ordered_at asc
+        ) as last_order_at
     from orders
     --only consider complete (delivered) orders
     where orders.order_status = 'delivered'
@@ -48,8 +54,8 @@ final as (
     --boolean
         --customer considered active if they have made an order in the past 45 days
         case 
-            when days_since_first_last.days_since_last_order <= 45 then 1
-            else 0
+            when days_since_first_last.days_since_last_order <= 45 then true
+            else false
         end as is_active,
 
 
