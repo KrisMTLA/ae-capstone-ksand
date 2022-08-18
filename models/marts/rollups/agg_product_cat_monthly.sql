@@ -89,23 +89,25 @@ final as (
             'product_cat_scores.date_month', 
             'product_cat_scores.product_category'
         ]) }} as agg_product_cat_monthly_sk,
+
+        --dimensions
         product_cat_scores.date_month,
         product_cat_scores.product_category,
 
-        --dimensions
+        --measures
         product_cat_scores.count_ordered_items,
         product_cat_scores.count_category_w_review,
         product_cat_scores.count_category_1_score,
         product_cat_scores.count_category_5_score,
-        safe_divide(product_cat_scores.count_category_1_score, product_cat_scores.count_category_w_review) as cat_score_freq_1,
-        safe_divide(product_cat_scores.count_category_5_score, product_cat_scores.count_category_w_review) as cat_score_freq_5,
+        safe_divide(product_cat_scores.count_category_1_score, product_cat_scores.count_category_w_review) as freq_category_1_score,
+        safe_divide(product_cat_scores.count_category_5_score, product_cat_scores.count_category_w_review) as freq_category_5_score,
         product_cat_mean_avg.median_review_score,
         product_cat_mean_avg.average_review_score,
         population_scores.count_total_w_review,
         population_scores.count_total_1_score,
         population_scores.count_total_5_score,
-        safe_divide(population_scores.count_total_1_score, population_scores.count_total_w_review) as pop_score_freq_1,
-        safe_divide(population_scores.count_total_5_score, population_scores.count_total_w_review) as pop_score_freq_5,
+        safe_divide(population_scores.count_total_1_score, population_scores.count_total_w_review) as freq_population_1_score,
+        safe_divide(population_scores.count_total_5_score, population_scores.count_total_w_review) as freq_population_5_score
 
     from product_cat_scores
     left join population_scores
