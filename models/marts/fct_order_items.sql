@@ -38,6 +38,7 @@ final as (
         orders.order_delivered_carrier_date as delivered_carrier_at,
         orders.order_delivered_customer_date as delivered_customer_at,
         orders.order_estimated_delivery_date as estimated_delivery_at,
+        reviews.reviewed_at,
     -- dimensions
         order_items.price,
         order_items.freight_value,

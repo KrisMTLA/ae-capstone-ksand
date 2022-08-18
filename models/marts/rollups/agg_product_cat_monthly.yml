@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: agg_product_cat_monthly
+    description: 'One row per combination of product category and month,count the
+    number of order items, reviewed orders, count of 1 and 5 star reviews, 1 and 5
+    star review frequencies, median and average review scores. 
+    As well, total reviews, total 1 star reviews and total 5 star reviews are available
+    for the entire population for a given month in order to see how a given category compares'
+    columns:
+      - name: agg_product_cat_monthly_sk 
+        tests:
+          - unique
+          - not_null
